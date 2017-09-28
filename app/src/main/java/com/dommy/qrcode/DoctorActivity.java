@@ -10,7 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.dommy.qrcode.util.Constant;
@@ -18,7 +19,14 @@ import com.google.zxing.activity.CaptureActivity;
 
 public class DoctorActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnQrCode; // 扫码
-    TextView tvResult; // 结果
+    EditText edtTxtNum;//病历号
+    EditText edtTxtName;//姓名
+    Spinner spinner;//性别
+    EditText edtTxtAge;//年龄
+    EditText edtTxtPhone;//电话
+    EditText edtTxtAddress;//联系地址
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +40,7 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
         btnQrCode = (Button) findViewById(R.id.btnScan);
         btnQrCode.setOnClickListener(this);
 
-        tvResult = (TextView) findViewById(R.id.tvName);
+        edtTxtNum = (EditText) findViewById(R.id.edtTxtNum);
     }
 
     // 开始扫码
@@ -64,7 +72,12 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
             Bundle bundle = data.getExtras();
             String scanResult = bundle.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN);
             //将扫描出的信息显示出来
-            tvResult.setText(scanResult);
+            //edtTxtNum.setText(scanResult);
+            Intent intent = new Intent(DoctorActivity.this, PatientActivity.class);
+            // 往Intent中传入Patient相关的数据，供PatientActivity使用
+            intent.putExtra("edtTxtNum",scanResult);
+            // 准备跳转
+            startActivity(intent);
         }
     }
 

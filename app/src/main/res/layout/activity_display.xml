@@ -9,8 +9,6 @@
     tools:context="com.dommy.qrcode.DisplayActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
-    //2x1窗口放置图像或者下拉滚动条 不限制图像数量
-    //滚动条尚未实现
     //提供的影像数据类型可能是三维 或者其他需要自行截取或者转换成对应格式
     //前一窗口展示不同的检查项目影像 选中需要查看的反映在该窗口
     //小窗口应该按照什么标准进行展示 时间 拍摄位置等
@@ -71,7 +69,7 @@
         android:id="@+id/patient_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="病历号：20170913001\n姓名：赵六\n性别：男\n年龄：23"
+        android:text="病历号：201709130001\n姓名：张三\n性别：男\n年龄：23"
         android:textColor="@color/colorWhite"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintLeft_creator="1"

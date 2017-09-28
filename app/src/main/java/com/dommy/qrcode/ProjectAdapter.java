@@ -31,8 +31,8 @@ public class ProjectAdapter extends ArrayAdapter<Project> {
         View oneprojectView = LayoutInflater.from(getContext()).inflate(R.layout.project_item, parent, false);
 
         // 获取ImageView和TextView
-        ImageView imageView = (ImageView) oneprojectView.findViewById(R.id.project_image);
-        TextView textView = (TextView) oneprojectView.findViewById(R.id.project_name);
+        ImageView imageView = oneprojectView.findViewById(R.id.project_image);
+        TextView textView = oneprojectView.findViewById(R.id.project_name);
 
         // 根据数据设置ImageView和TextView
         imageView.setImageResource(project.getImageId());
@@ -43,7 +43,7 @@ public class ProjectAdapter extends ArrayAdapter<Project> {
             public void onClick(View v) {
                 //  初始化一个准备跳转到DisplayActivity的Intent
                 Intent intent = new Intent(getContext(), DisplayActivity.class);
-                // 往Intent中传入Teacher相关的数据，供TeacherDetailActivity使用
+                // 往Intent中传入Project相关的数据，供DisplayActivity使用
                 intent.putExtra("project_image", project.getImageId());
                 intent.putExtra("project_desc", project.getDesc());
                 // 准备跳转
