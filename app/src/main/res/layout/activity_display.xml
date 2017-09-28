@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+
+    tools:context="com.dommy.qrcode.DisplayActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+    //2x1窗口放置图像或者下拉滚动条 不限制图像数量
+    //滚动条尚未实现
+    //提供的影像数据类型可能是三维 或者其他需要自行截取或者转换成对应格式
+    //前一窗口展示不同的检查项目影像 选中需要查看的反映在该窗口
+    //小窗口应该按照什么标准进行展示 时间 拍摄位置等
+    //这部分初步先定为二维图像 后续应在前一窗口可选二维或者三维
+
+    //实现交互 在最底下设置按钮 包括亮度调整 缩放等 来控制手势功能
+
+    <Button
+        android:id="@+id/btnBrightness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="亮度"
+        app:layout_constraintRight_toLeftOf="@+id/btnRotate"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnRotate"
+        tools:layout_constraintBaseline_creator="1"
+        android:layout_marginRight="2dp" />
+
+    <Button
+        android:id="@+id/btnRotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="旋转"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnTone"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <Button
+        android:id="@+id/btnTone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="色调"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/btnRotate" />
+
+    <ImageView
+
+        android:id="@+id/project_image"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginTop="115dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitCenter"/>
+    //默认四个角都填充相应信息
+    <TextView
+        android:id="@+id/patient_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="病历号：20170913001\n姓名：赵六\n性别：男\n年龄：23"
+        android:textColor="@color/colorWhite"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/image_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="项目：胸部CT\n时间：2017.09.16"
+        android:textColor="@color/colorWhite"
+        android:layout_marginRight="25dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/project_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="size:720x560"
+        android:textColor="@color/colorWhite"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/result_desc"
+        android:layout_width="186dp"
+        android:layout_height="38dp"
+        android:text="诊断结果：未见明显异常改变"
+        android:textColor="@color/colorWhite"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="90dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="383dp"
+        android:layout_height="39dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnBrightness"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@+id/result_desc"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.333" />
+
+
+</android.support.constraint.ConstraintLayout>
